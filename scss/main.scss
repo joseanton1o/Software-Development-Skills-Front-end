@@ -1,5 +1,5 @@
 @import "config";
-
+@import "menu";
 * {
     box-sizing: border-box;
 }
@@ -34,6 +34,7 @@ h1, h2, h3 {
         .bg-w{
             background: rgba(lighten($primary-color,2),0.6);
             padding: 5px;
+            border-radius: 5px;
         }
         
         // lighten: color and how much lighting we want
