@@ -23,16 +23,112 @@
         .btn-line{
             // Line 1 - rotate
             &:nth-child(1){ // Selector to select the first child element
-                transform: rotate(45deg) translate(5px, 5px); // x and y axis
+                transform: rotate(45deg) translate(13px, 8px); // x and y axis
             }
             // Line 2 - Hide
             &:nth-child(2){ // Selector to select the first child element
                 opacity: 0;
             }
-            // Line 3 - rotate
             &:nth-child(3){ // Selector to select the first child element
-                transform: rotate(-45deg) translate(7px, -6px); // x and y axis
+                opacity: 0;
+            }
+            // Line 4 - rotate
+            &:nth-child(4){ // Selector to select the first child element
+                transform: rotate(-45deg) translate(10px, -4px); // x and y axis
             }
         }
+    }
+}
+
+// Menu overlay
+.menu{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9; // See through effect
+    visibility: hidden; // Not shown by default
+
+    &.show{
+        visibility: visible; // if it has show class
+    }
+
+    &-branding, &-nav{
+        display: flex; // gonna make it into a column
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;//align vertically and horizontally
+        float: left;
+        width: 50%; // split it in half
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    &-nav{
+        margin: 0;
+        padding: 0;
+        background: darken($primary-color,5);
+        list-style: none; // no points
+        // Translate 3d
+        transform: translate3d(0,-100%,0); // puts it up the page
+        // 100% it push down -100% up
+
+        @include easeOut();
+        &.show{
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    &-branding {
+        background: $primary-color;
+        transform: translate3d(0,100%,0); // puts it up the page
+        @include easeOut();
+        &.show {
+            // Slide in from bottom
+            transform: translate3d(0,0,0); // lo ponemos donde estaba en la y 0
+        }
+
+        .portrait {
+            width: 250px;
+            height: 250px;
+            background: url(../img/portrait.jpg);
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+        }
+    }
+
+    .nav-item {
+        transform: translate3d(600px, 0, 0);//moving to the right 600 px
+        @include easeOut();
+        &.show {
+            transform: translate3d(0,0,0);
+        }
+
+        &.current > a {
+            color: $secondary-color;
+        }
+    }
+    
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 30px;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        @include easeOut();
+        &:hover{
+            color: $secondary-color;
+        }
+    }
+}
+
+
+// Delay each nav item slide by 0.1s
+@for $i from 1 through 4 { // 4 because we have 4 items
+    .nav-item:nth-child(#{$i}){
+        // for each link
+        transition-delay: $i * 0.1s;
     }
 }
