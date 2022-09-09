@@ -45,7 +45,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    opacity: 0.9; // See through effect
+ // See through effect
     visibility: hidden; // Not shown by default
 
     &.show{
@@ -67,11 +67,11 @@
         margin: 0;
         padding: 0;
         background: darken($primary-color,5);
+        opacity: 0.9;
         list-style: none; // no points
         // Translate 3d
         transform: translate3d(0,-100%,0); // puts it up the page
         // 100% it push down -100% up
-
         @include easeOut();
         &.show{
             transform: translate3d(0,0,0);
@@ -79,7 +79,7 @@
     }
 
     &-branding {
-        background: $primary-color;
+        background: rgba($primary-color,0.9);
         transform: translate3d(0,100%,0); // puts it up the page
         @include easeOut();
         &.show {
@@ -94,6 +94,7 @@
             border-radius: 50%;
             border: solid 3px $secondary-color;
         }
+        
     }
 
     .nav-item {

@@ -15,7 +15,8 @@ $background-opacity: 0.9;
             background-attachment: fixed;
             background-size: cover;
         }
-        .overlay{ // can be replaced with an after element
+        &:after { // can be replaced with an after element
+            content: '';
             position: absolute;
             top: 0;
             right: 0;
