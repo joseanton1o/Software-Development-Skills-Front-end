@@ -172,6 +172,8 @@ main {
   .about-info .bio {
     grid-area: bio;
     font-size: 1.5rem; }
+  .about-info .job {
+    padding: 1rem; }
   .about-info .job-1 {
     grid-area: job1; }
   .about-info .job-2 {
@@ -277,5 +279,10 @@ main {
 @media screen and (max-width: 500px) {
   main#home h1 {
     margin-top: 10vh; }
+  .boxes div {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    word-wrap: break-word; }
   .projects {
     grid-template-columns: 1fr; } }

@@ -72,6 +72,23 @@
         margin-top: 10vh;
     }
 
+    .boxes {
+        div {
+            // Make div fit into screen
+            width: 100%;
+            height: 100%;
+
+            // Make divs stack on top of each other
+
+            // Make words in several lines
+            display: inline-block;
+            word-wrap: break-word;
+
+
+            
+        }
+    }
+
     .projects {
         grid-template-columns: 1fr;
     }
